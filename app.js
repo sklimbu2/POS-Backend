@@ -12,7 +12,7 @@ const app = express();
 app.use(express.json());
 app.use(fileUpload());
 app.use(cors({
-  origin: 'https://react-project-f7563.web.app',
+  origin: ['https://react-project-f7563.web.app','http://localhost:3000'],
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   credentials: true
 }));
