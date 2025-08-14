@@ -1,6 +1,12 @@
 const path = require('path')
 const fs= require('fs')
-const { uploadProcessedData, getAllData, updateDocument, deleteDocument, uploadNewFood, Firebase_GetFoodData } = require('../controllers/firebase');
+const { uploadProcessedData, 
+    getAllData, 
+    updateDocument, 
+    deleteDocument, 
+    uploadNewFood, 
+    Firebase_GetFoodData
+} = require('../controllers/firebase');
 const getAllOrders = async (req, res) => {
   const data = await getAllData()
   res.send(JSON.stringify(data))
@@ -35,6 +41,7 @@ const deleteOrder = async (req, res) => {
         res.status(500).json({ success: false, message: 'Failed to create order' });
     }
 }
+
 const UploadNewFood = async(req, res) =>{
     try{
         if(!req.files || !req.files.image){
@@ -87,5 +94,5 @@ module.exports = {
     updateOrder,
     deleteOrder,
     UploadNewFood,
-    getFoodData 
+    getFoodData
 }

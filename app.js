@@ -1,5 +1,6 @@
 require('dotenv').config();
 const orders = require('./routes/orders');
+const menuItems = require('./routes/menuItem');
 const cors = require('cors');
 const express = require('express');
 const fileUpload = require('express-fileupload');
@@ -28,6 +29,7 @@ try {
 // API routes
 app.use('/api/v1/orders', orders);
 app.use('/images', express.static(path.join(__dirname, 'images')));
+app.use('/api/v1/MenuItem', menuItems);
 
 // Health check route
 app.get('/', (req, res) => {

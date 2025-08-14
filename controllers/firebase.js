@@ -130,6 +130,17 @@ const Firebase_GetFoodData = async() =>{
         console.log(error)
     }
 }
+const Firebase_DeleteMenuItem = async(ItemName) =>{
+    try{
+        const docRef = doc(firestoreDb, "FoodData", ItemName)
+        if(await deleteDoc(docRef)){
+            return true
+        }
+    }catch(error){
+        console.log(error)
+        return false
+    }
+}
 const getFirebaseApp = () => {
     if (!isInitialized) initializeFirebaseApp();
     return app;
@@ -142,5 +153,6 @@ module.exports = {
     updateDocument,
     deleteDocument,
     uploadNewFood,
-    Firebase_GetFoodData
+    Firebase_GetFoodData,
+    Firebase_DeleteMenuItem
 }
