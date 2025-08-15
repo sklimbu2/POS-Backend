@@ -133,9 +133,8 @@ const Firebase_GetFoodData = async() =>{
 const Firebase_DeleteMenuItem = async(ItemName) =>{
     try{
         const docRef = doc(firestoreDb, "FoodData", ItemName)
-        if(await deleteDoc(docRef)){
-            return true
-        }
+        await deleteDoc(docRef)
+        return true
     }catch(error){
         console.log(error)
         return false
